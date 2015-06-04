@@ -33,17 +33,22 @@ $nbart = empty($params['nbart']) ? '20' : $params['nbart']['value'];
 $nbcomsart = empty($params['nbcomsart']) ? '10' : $params['nbcomsart']['value'];
 
 ?>
-
-<h2><?php echo $plxPlugin->getInfo('title') ?></h2>
-<h3><?php echo $plxPlugin->getInfo('description') ?></h3>
-
-<form action="parametres_plugin.php?p=plxMyLoremIpsum" method="post" id="form_loremipsum">
+<style>
+form.inline-form label {
+	width: 300px;
+}
+</style>
+<form class="inline-form" action="parametres_plugin.php?p=plxMyLoremIpsum" method="post" id="form_loremipsum">
 	<fieldset>
-		<p class="field"><label for="id_nbart">Nombre d'articles &agrave; cr&eacute;er</label></p>
-		<?php plxUtils::printInput('nbart', $nbart, 'text', '1-2'); ?>
-		<p class="field"><label for="id_nbcomsart">Nombre maximum de commentaires cr&eacute;&eacute;s al&eacute;atoirement par article</label></p>
-		<?php plxUtils::printInput('nbcomsart', $nbcomsart, 'text', '1-2'); ?>
 		<p>
+			<label for="id_nbart">Nombre d'articles &agrave; cr&eacute;er</label>
+			<?php plxUtils::printInput('nbart', $nbart, 'text', '1-2'); ?>
+		</p>
+		<p>
+			<label for="id_nbcomsart">Nombre maximum de commentaires cr&eacute;&eacute;s al&eacute;atoirement par article</label>
+			<?php plxUtils::printInput('nbcomsart', $nbcomsart, 'text', '1-2'); ?>
+		</p>
+		<p class="in-action-bar">
 			<?php echo plxToken::getTokenPostMethod() ?>
 			<input type="submit" name="save" value="Sauvegarder" />
 			&nbsp;
